@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	has_many :blogs, dependent: :destroy
 	attr_accessor :remember_token
 
 
@@ -9,6 +10,10 @@ class User < ApplicationRecord
 	has_secure_password
 
 	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
+	def feed
+		Blog.where("user_id = ?", id)
+	end
 
 	# Returns the hash digest of the given string.
 	def User.digest(string)
