@@ -1,24 +1,39 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
 
-<div>
-  <div>
+<div class="row ">
+  <div class="col-md-6 offset-md-3" id="login-part">
+    <div class="card border-success mb-3">
+      <h2 id="SignUp">SIGN UP</h2>
+
     <%= form_for(@user, url: signup_path) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <div class="form-group">
+        <i class="fa fa-user"></i>
+        <%= f.label :name , class:"label-part"%>
+        <%= f.text_field :name ,class:"form-control background"%>
+      </div>
 
-      <%= f.label :email %>
-      <%= f.email_field :email %>
+      <div class="form-group">
+        <i class="fa fa-envelope"></i>
+        <%= f.label :email , class:"label-part"%>
+        <%= f.email_field :email ,class:"form-control background"%>
+      </div>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <div class="form-group">
+        <i class="fa fa-lock"></i>
+        <%= f.label :password , class:"label-part"%>
+        <%= f.password_field :password ,class:"form-control background"%>
+      </div>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+      <div class="form-group">
+        <i class="fa fa-lock"></i>
+        <%= f.label :password_confirmation, "Confirmation" , class:"label-part"%>
+        <%= f.password_field :password_confirmation ,class:"form-control background"%>
+      </div> 
 
-      <%= f.submit "Create my account"%>
+      <%= f.submit "Create my account",class: "btn btn-success"%>
     <% end %>
+    </div>
   </div>
 </div>
