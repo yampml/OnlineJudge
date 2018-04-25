@@ -10,15 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423140612) do
+ActiveRecord::Schema.define(version: 20180425091219) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "blogs", force: :cascade do |t|
     t.text "content"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "created_at"], name: "index_blogs_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "problems", force: :cascade do |t|
+    t.string "name"
+    t.float "timelimit"
+    t.integer "memlimit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.binary "source_code"
+    t.datetime "time_at_submit"
+    t.json "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "problem_id"
+    t.index ["problem_id"], name: "index_submissions_on_problem_id"
+    t.index ["user_id"], name: "index_submissions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -32,4 +55,7 @@ ActiveRecord::Schema.define(version: 20180423140612) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "blogs", "users"
+  add_foreign_key "submissions", "problems"
+  add_foreign_key "submissions", "users"
 end

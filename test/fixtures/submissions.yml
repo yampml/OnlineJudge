@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  source_code: MyString
+  time_at_submit: MyString
+  result: MyString
+
+two:
+  user: two
+  source_code: MyString
+  time_at_submit: MyString
+  result: MyString
