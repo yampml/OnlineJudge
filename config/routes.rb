@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'problems/index'
+
+  get 'problems/show'
+
+  get 'problems/new'
+
+  get 'problems/edit'
+
+  get 'problems/create'
+
+  get 'problems/update'
+
+  get 'problems/destroy'
+
   get 'sessions/new'
 
   root 'static_pages#home'
@@ -13,4 +27,12 @@ Rails.application.routes.draw do
   resources :users
 
   resources :blogs, only: [:create, :destroy]
+
+
+  scope '/admin' do
+    resources :problems, only: [:new, :edit, :create, :update, :destroy]
+  end
+  
+  
+
 end

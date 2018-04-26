@@ -1,0 +1,23 @@
+<% provide(:title, 'Upload new problem') %>
+
+<div>
+	<div>
+		<%= form_for(@problem, url: problems_path) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+
+			<%= f.label :timelimit, "Time Limit" %>
+			<%= f.number_field :timelimit %>
+
+			<%= f.label :memlimit, "Memory Limit" %>
+			<%= f.number_field :memlimit %>
+
+			<%= f.label :file_name, "File" %>
+			<%= f.file_field :file_name, multiple: true %>
+
+			<%= f.submit "Upload"%>
+		<% end %>
+	</div>
+</div>
