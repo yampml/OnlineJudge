@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   scope '/admin' do
     resources :problems, only: [:new, :edit, :create, :update, :destroy]
   end
-  
+
+  resources :submissions, 
+
   
 
 end
