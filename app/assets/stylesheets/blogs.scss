@@ -1,3 +1,63 @@
 // Place all the styles related to the Blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.blogs {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #00c54d;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+    font-size:12px;
+    color: #a5a0a0;
+    a {
+
+    	color:#6343AA;
+
+    }
+  }
+  .content {
+    display: block;
+    margin-left: 30px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: #a5a0a0;
+    display: inline;
+    font-size:12px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+    height:37px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+#blogFeedTitle {
+	
+	color:#00c54d;
+
+
+}
