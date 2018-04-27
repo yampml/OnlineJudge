@@ -1,4 +1,4 @@
-Gem annotate will automatically add some fuking comment to routes, db file, blah blah
+Gem annotate will automatically add some fuking comment to routes, db file, blah blah. Help us to maintain these zode.
 
 == How to use
 In terminal type: annotate. Zis will add some comment like this:
@@ -16,7 +16,7 @@ In terminal type: annotate. Zis will add some comment like this:
     #  file_name  :json
     #
     class Problem < ApplicationRecord
-	    has_many :submissions
+	has_many :submissions
     . . .
 
 But in the routes file, Zis will be: annotate --routes. Like Zis, like Zuy: 
@@ -66,4 +66,4 @@ But in the routes file, Zis will be: annotate --routes. Like Zis, like Zuy:
     annotate --delete
     annotate --routes --delete
 
-    Zone zoy, go go zuy
+Zone zoy, go go zuy
