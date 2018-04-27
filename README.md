@@ -1,5 +1,6 @@
 Gem annotate will automatically add some fuking comment to routes, db file, blah blah
 
+== How to use
 In terminal type: annotate. Zis will add some comment like this:
 
 # == Schema Information
@@ -14,6 +15,9 @@ In terminal type: annotate. Zis will add some comment like this:
 #  updated_at :datetime         not null
 #  file_name  :json
 #
+class Problem < ApplicationRecord
+	has_many :submissions
+. . .
 
 But in the routes file, Zis will be: annotate --routes. Like Zis, like Zuy: 
 
@@ -55,10 +59,11 @@ But in the routes file, Zis will be: annotate --routes. Like Zis, like Zuy:
 #                  DELETE /admin/problems/:id(.:format)      problems#destroy
 #      submissions POST   /submissions(.:format)             submissions#create
 #   new_submission GET    /submissions/new(.:format)         submissions#new
-
+. . .
+== How to unZues
 If you wanna to get a bit cleaner Git, remove them all before commit, zue zis:
 
-annotate --delete
-annotate --routes --delete
+    annotate --delete
+    annotate --routes --delete
 
 Zone zoy, go go zuy
