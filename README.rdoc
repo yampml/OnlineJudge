@@ -16,8 +16,8 @@ In terminal type: annotate. Zis will add some comment like this:
     #  file_name  :json
     #
     class Problem < ApplicationRecord
-	has_many :submissions
-    . . .
+
+
 
 But in the routes file, Zis will be: annotate --routes. Like Zis, like Zuy: 
 
