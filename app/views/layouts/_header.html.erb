@@ -5,7 +5,7 @@
       <ul>
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Contest", '#' %></li>
-        <li><%= link_to "Problemset", '#' %></li>
+        <li><%= link_to "Problemset", problemset_path %></li>
         <li><%= link_to "Help", help_path %></li>
         <% if logged_in? %>
           <li><%= link_to "Users", users_path %></li>

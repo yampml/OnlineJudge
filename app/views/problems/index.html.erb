@@ -1,2 +1,95 @@
-<h1>Problems#index</h1>
-<p>Find me in app/views/problems/index.html.erb</p>
+
+</head>
+<body>
+    <div class="tm-wrapper">
+        <div class="tm-wrapper2">
+            <div class="tm-header">
+                <div class="tm-header-wrapper">
+                    <div class="tm-header-logo"></div>
+                </div>
+            </div>
+
+   
+            <div class="tm-body">
+                     <div class="tm-content-pane">
+                        
+
+
+
+<ul class="sub-menu">
+            <li class="active"><b><a href="/Problem/List">B&#192;I TẬP</a></b></li>    
+            <li class=""><b><a href="/Submission/Submit">NỘP B&#192;I</a></b></li>    
+            <li class=""><b><a href="/Submission/All">BẢNG CHẤM B&#192;I </a></b></li>    
+
+</ul>
+
+<div class="clear-fix">
+    <div class="tm-theme">
+<form action="/Problem/Filter" method="post">        <span>Xem theo dạng bài </span>
+<select id="ThemeID" name="ThemeID"><option selected="selected" value="0">Tất cả c&#225;c dạng b&#224;i (481)</option>
+<option value="6">Mức độ dễ (165)</option>
+<option value="20">Mức cơ bản (52)</option>
+<option value="7">Mức độ kh&#243; (191)</option>
+<option value="2048">  Constructive Algorithm (1)</option>
+<option value="15">Mức độ rất kh&#243; (1)</option>
+<option value="1033">V&#233;t cạn (8)</option>
+<option value="1">Sắp xếp (30)</option>
+<option value="5">T&#236;m nhị ph&#226;n (18)</option>
+<option value="2">Đệ quy (6)</option>
+<option value="13">Quay lui (16)</option>
+<option value="21">P.ph&#225;p sinh (6)</option>
+<option value="26">Nh&#225;nh cận (6)</option>
+<option value="3">Tham lam (23)</option>
+<option value="4">Quy hoạch động (52)</option>
+<option value="2033">Quy hoạch động trạng th&#225;i (5)</option>
+<option value="2037">Quy hoạch động tr&#234;n C&#226;y (1)</option>
+<option value="14">Tr&#242; chơi (5)</option>
+<option value="9">DFS v&#224; BFS (24)</option>
+<option value="10">Heap (7)</option>
+<option value="11">Đường đi ngắn nhất (4)</option>
+<option value="2034">Đồ thị (10)</option>
+<option value="12">C&#226;y khung nhỏ nhất (1)</option>
+<option value="16">To&#225;n (71)</option>
+<option value="17">C&#226;y nhị ph&#226;n (3)</option>
+<option value="24">Binary Indexed Tree (8)</option>
+<option value="2043">Binary Indexed Tree 2D (1)</option>
+<option value="25">Segment Tree (9)</option>
+<option value="2042">Segment Tree 2D (1)</option>
+<option value="27">D.s&#225;ch li&#234;n kết (3)</option>
+<option value="28">Ngăn xếp (5)</option>
+<option value="29">Hash (4)</option>
+<option value="1032">Union-Find Disjoint Set (2)</option>
+<option value="31">RMQ (2)</option>
+<option value="32">Cha chung gần nhất (LCA) (1)</option>
+<option value="2036">Luồng cực đại (Maxflow), Cặp gh&#233;p (3)</option>
+<option value="30">H&#236;nh học (8)</option>
+<option value="2035">Suffix Arrays (1)</option>
+<option value="2041">Trie (2)</option>
+<option value="2045">KMP, Z Function (1)</option>
+</select></form>    </div>
+</div>
+
+<div class="tm-box-right clear-fix">
+<div class="tm-box-header">
+    <div class="float-left">Danh sách bài tập</div>
+    <div class="input-filter-container">
+        <input type="search" id="input-filter" size="13" placeholder="tìm...">
+    </div>
+</div>
+<div class="tm-box-body">
+
+<table cellpadding="1" cellspacing="1" border="0" class="data-table-short" >
+    <thead>
+        <tr>
+            <th>Mã </th>
+            <th> Tên bài tập </th>
+            <th> Dạng bài </th>
+            <th>
+                 Số giải được
+                
+            </th>
+            <th style="width:24px"></th>
+        </tr>
+    </thead>
+</table>
+</div>
