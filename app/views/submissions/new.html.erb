@@ -1,0 +1,14 @@
+<% provide(:title, 'Submit solution') %>
+
+<div>
+	<div>
+		<%= form_for(@submission, url: submissions_path) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+
+			<%= f.label :solution_name, "File" %>
+			<%= f.file_field :solution_name %>
+
+			<%= f.submit "Submit"%>
+		<% end %>
+	</div>
+</div>

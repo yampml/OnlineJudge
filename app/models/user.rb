@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	has_many :submissions
 	has_many :blogs, dependent: :destroy
 	attr_accessor :remember_token
 

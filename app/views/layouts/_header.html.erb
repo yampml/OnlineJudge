@@ -16,6 +16,7 @@
             <ul>
               <li>This is a fukin dropdown, float me right dude</li>
               <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Submit", new_submission_path %></li>
               <% if current_user.admin? %>
                 <li><%= link_to "Upload Problem", new_problem_path %></li> 
               <% end %> 

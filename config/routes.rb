@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :problems, only: [:new, :edit, :create, :update, :destroy]
   end
 
-  resources :submissions, 
+  resources :submissions, only: [:new, :create]
 
   
 
