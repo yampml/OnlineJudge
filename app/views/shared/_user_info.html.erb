@@ -1,5 +1,5 @@
-<div class="card text-center bg-light mb-3" style="max-width: 18rem;">
-	<%= link_to gravatar_for(current_user), current_user, class: "card-img-bottom" %>
+<div class="card text-center bg-light mb-3">
+	<div><%= link_to gravatar_for(current_user), current_user, class: "card-img-bottom" %></div>
 	<div class="card-body">
 		<h5 class="card-title"><%= current_user.name %></h5>
 		<span><%= pluralize(current_user.blogs.count, "blog") %></span>

@@ -14,7 +14,7 @@
       <ol class="blogs">
         <%= render @blogs %>
       </ol>
-      <%= will_paginate @blogs %>
+      <%= will_paginate @blogs, previous_label: '&laquo;' ,next_label: '&raquo;'%>
     <% end %>
   </div>  
 </div>
