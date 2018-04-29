@@ -40,7 +40,7 @@
 Rails.application.routes.draw do
   get 'problems/index', to: 'problems#index', as: 'problemset'
 
-  get 'problems/show'
+  get 'problems/:id', to: 'problems#show', as: 'problem' 
 
   get 'problems/new'
 

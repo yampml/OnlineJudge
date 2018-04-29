@@ -3,11 +3,11 @@ class ProblemsController < ApplicationController
   before_action :admin_auth, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-
+    @problems = Problem.all
   end
 
   def show
-  
+    @problem = Problem.find_by(problem_params[:id])
   end
 
   def new
