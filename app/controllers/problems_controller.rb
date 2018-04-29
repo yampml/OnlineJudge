@@ -7,8 +7,8 @@ class ProblemsController < ApplicationController
   end
 
   def show
-    @problem = Problem.find(params[:id])
-    # @problem = Problem.find(id: params[:id])
+    #@problem = Problem.find(params[:id])
+    @problem = Problem.find_by(id: params[:id])
   end
 
   def new
