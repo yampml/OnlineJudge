@@ -50,7 +50,7 @@ Rails.application.routes.draw do
 
   get 'problems/update'
 
-  get 'problems/destroy'
+
 
   get 'sessions/new'
 
@@ -73,6 +73,7 @@ Rails.application.routes.draw do
   end
 
   resources :submissions, only: [:new, :create]
+
 
   
 

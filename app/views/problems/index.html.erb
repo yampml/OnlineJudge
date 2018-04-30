@@ -1,18 +1,19 @@
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-preview">
-            <%= will_paginate @problems, renderer: BootstrapPagination::Rails, class: "pager" %>
-            <ul>
-            <% @problems.each do |problems| %>
-                <h3 class="post-preview">
-                <%= link_to problems.name, problems %>
-                </h3>
-              <% end %>
-            </ul>
-            <%= will_paginate @problems, renderer: BootstrapPagination::Rails, class: "pager"  %>s
-            </div>
-        </div>
-    </div>
-</div>
+<table class="table table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Problem name</th>
+    <th>Time Limit</th>
+    <th>Memory Limit</th>
+    </tr>
+    <% @problems.each do |probs| %>
+    <tr>
+      <td><%= link_to probs.id, probs %></td>
+      <td><%= link_to probs.name.titleize, probs%></td>
+      <td><%= probs.timelimit%></td>
+      <td><%= probs.memlimit%></td>
+      <td><%= link_to "Delete problem",
+                                  data: { confirm: "Your deletion can't be restored" } %></td>
+      </tr>
+    <% end %>
+</table>
