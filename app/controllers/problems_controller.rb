@@ -3,7 +3,7 @@ class ProblemsController < ApplicationController
   before_action :admin_auth, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    @problems = Problem.all
+    @problems = Problem.paginate(page: params[:page])
   end
 
   def show

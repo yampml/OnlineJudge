@@ -1,0 +1,7 @@
+<li <%= problem.id %> >
+  <span><%= link_to problem.name %></span>
+  <span><%= problem.timelimit %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(problem.created_at) %> ago.
+  </span>
+</li>
