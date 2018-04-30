@@ -14,4 +14,19 @@
 //= require bootstrap
 //= require rails-ujs
 //= require turbolinks
+//= require codemirror
+//= require codemirror/modes/xml
+//= require codemirror/modes/htmlmixed
+//= require codemirror/modes/javascript
+//= require codemirror/modes/ruby
+//= require codemirror/modes/haml
 //= require_tree .
+
+var codeArea = $('#code');
+var editor = CodeMirror.fromTextArea(codeArea[0], {
+  indentUnit: 4,
+  lineWrapping: true,
+  mode: "javascript",
+  theme: "eclipse"
+});
+

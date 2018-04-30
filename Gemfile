@@ -38,6 +38,8 @@ gem 'will_paginate',           '3.1.6'
 gem 'will_paginate-bootstrap'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave'
+gem 'codemirror-rails'
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
