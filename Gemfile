@@ -38,7 +38,6 @@ gem 'will_paginate',           '3.1.6'
 gem 'will_paginate-bootstrap'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave'
-gem 'codemirror-rails'
 gem 'jquery-ace-rails'
 
 
