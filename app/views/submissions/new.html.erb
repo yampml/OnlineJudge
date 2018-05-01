@@ -2,6 +2,19 @@
 
 
 
+<textarea id="editor" rows="30" style="width: 50%">
+public class Test {
+
+  public static void main(String[] args) throws Exception {
+    System.out.println("Hello world!");
+  }
+
+}
+</textarea>
+
+<script>
+$('#editor').ace({ theme: 'light', lang: 'java' })
+</script>
   <div>
 	<div>
 		<%= form_for(@submission, url: submissions_path) do |f| %>
@@ -14,29 +27,3 @@
 		<% end %>
 </div>
 </div>
-<article>
-
-    <textarea id=code name=code>
-</textarea>
-    <iframe id=preview></iframe>
-    <script>
-      var delay;
-      // Initialize CodeMirror editor with a nice html5 canvas demo.
-      var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
-        mode: 'text/html'
-      });
-      editor.on("change", function() {
-        clearTimeout(delay);
-        delay = setTimeout(updatePreview, 300);
-      });
-      
-      function updatePreview() {
-        var previewFrame = document.getElementById('preview');
-        var preview =  previewFrame.contentDocument ||  previewFrame.contentWindow.document;
-        preview.open();
-        preview.write(editor.getValue());
-        preview.close();
-      }
-      setTimeout(updatePreview, 300);
-    </script>
-  </article>      
