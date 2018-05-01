@@ -1,6 +1,8 @@
 <% provide(:title, 'Submit solution') %>
 
-<div>
+
+
+  <div>
 	<div>
 		<%= form_for(@submission, url: submissions_path) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
@@ -10,16 +12,31 @@
 
 			<%= f.submit "Submit"%>
 		<% end %>
-    <div class="ui centered grid" id="codearea">      
-      <div class="row"></div>
-      <div class="row">
-        <div class="seven wide column">
-          <textarea id="code"></textarea>
-        </div>
-        <div class="seven wide column" id="preview">
-          <canvas id="render"></canvas>
-        </div>
-      </div> 
-    </div>
-	</div>
 </div>
+</div>
+<article>
+
+    <textarea id=code name=code>
+</textarea>
+    <iframe id=preview></iframe>
+    <script>
+      var delay;
+      // Initialize CodeMirror editor with a nice html5 canvas demo.
+      var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+        mode: 'text/html'
+      });
+      editor.on("change", function() {
+        clearTimeout(delay);
+        delay = setTimeout(updatePreview, 300);
+      });
+      
+      function updatePreview() {
+        var previewFrame = document.getElementById('preview');
+        var preview =  previewFrame.contentDocument ||  previewFrame.contentWindow.document;
+        preview.open();
+        preview.write(editor.getValue());
+        preview.close();
+      }
+      setTimeout(updatePreview, 300);
+    </script>
+  </article>      
