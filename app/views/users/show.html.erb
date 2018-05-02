@@ -1,20 +1,30 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
-  <div>
-    <% if @user.blogs.any? %>
-      <h3>Blogs (<%= @user.blogs.count %>)</h3>
-      <ol>
-        <%= render @blogs %>
-      </ol>
-      <%= will_paginate @blogs %>
+  <div class="wrapper">  
+    <div class="row">
+      <div class="col-md-3">
+        <section>
+        <div class="card text-center bg-light mb-3 align-items-center">
+          <div><%= gravatar_for @user,  class: "card-img-bottom" %></div>
+        <div class="card-body">
+          <h5 class="card-title"><%= @user.name %></h5>
+          <span><%= pluralize(@user.blogs.count, "blog") %></span>
+        </div>
+       </section>
+      </div>
+  <div class="col-md-9">
+    <div class="card bg-light">
+      <% if @user.blogs.any? %>
+      <div class="card-header text-center">
+        <h3 id="blogFeedTitle">Blogs - <%= @user.blogs.count %></h3>
+      </div>
+      <div>
+        <ol class="blogs">
+          <%= render @blogs %>
+        </ol>
+      <%= will_paginate @blogs, previous_label: '&laquo;' ,next_label: '&raquo;'%>
+      </div>
+    </div>
     <% end %>
   </div>  
+  </div>
 </div>
