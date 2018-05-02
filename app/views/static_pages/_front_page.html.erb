@@ -1,0 +1,27 @@
+<div>
+<table class="table table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Problem name</th>
+    <th>Time Limit</th>
+    <th>Memory Limit</th>
+    </tr>
+    <% @problems.each do |probs| %>
+    <tr>
+      <td><%= link_to probs.id, probs %></td>
+      <td><%= link_to probs.name.titleize, probs%></td>
+      <td><%= probs.timelimit%></td>
+      <td><%= probs.memlimit%></td>
+      <td><%= link_to "Delete problem",
+                                  data: { confirm: "Your deletion can't be restored" } %></td>
+      </tr>
+    <% end %>
+</table>
+</div>
+<div class="wrapper">  
+<% if @feed_items.any? %>
+  <ol class="blogs">
+    <%= render @feed_items%>
+  </ol>
+<% end %>
+</div>

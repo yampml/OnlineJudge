@@ -1,8 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
   	if logged_in?
-  		@blog = current_user.blogs.build
-  		@feed_items = current_user.feed.paginate(page: params[:page])
+      @problems = Problem.order("created_at desc").limit(10)
+  		@feed_items = Blog.order("created_at desc").limit(10)
   	end
   end
 
