@@ -1,24 +1,5 @@
 <% if logged_in? %>
-  <div class="wrapper">  
-    <div class="row">
-      <div class="col-md-3">
-        <section>
-          <%= render 'shared/user_info' %>
-          <%= render 'shared/blog_form' %>
-        </section>
-      </div>
-      <div class="col-md-9">
-        <div class="card bg-light">
-          <div class="card-header text-center">
-            <h3 id="blogFeedTitle">Blog Feed</h3>
-          </div>
-          <div>
-            <%= render 'shared/feed' %>
-          </div> 
-        </div>  
-      </div>    
-    </div>
-  </div>
+  <%= render 'static_pages/front_page'%>
 <% else %>
 <div class="jumbotron">
   <h1 class="display-4"> This is not a header nor a footer, so it is a main</h1>
