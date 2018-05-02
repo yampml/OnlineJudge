@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap', '~> 4.1.0'
 gem 'bcrypt',         '3.1.11'
 gem 'jquery-rails', '4.3.1'
 gem 'faker',          '>= 1.7.3'
@@ -39,6 +39,8 @@ gem 'will_paginate-bootstrap'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave'
 gem 'jquery-ace-rails'
+gem "font-awesome-rails"
+
 
 
 group :development, :test do

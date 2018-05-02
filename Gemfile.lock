@@ -49,9 +49,10 @@ GEM
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
-    bootstrap-sass (3.3.7)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
+    bootstrap (4.1.1)
+      autoprefixer-rails (>= 6.0.3)
+      popper_js (>= 1.12.9, < 2)
+      sass (>= 3.5.2)
     bootstrap-will_paginate (1.0.0)
       will_paginate
     builder (3.2.3)
@@ -69,8 +70,6 @@ GEM
       mime-types (>= 1.16)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    codemirror-rails (5.16.0)
-      railties (>= 3.0, < 6.0)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -86,6 +85,8 @@ GEM
     faker (1.8.7)
       i18n (>= 0.7)
     ffi (1.9.23)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -143,6 +144,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     pg (1.0.0)
+    popper_js (1.12.9)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -243,14 +245,14 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bcrypt (= 3.1.11)
-  bootstrap-sass (= 3.3.7)
+  bootstrap (~> 4.1.0)
   bootstrap-will_paginate (= 1.0.0)
   byebug
   capybara (~> 2.13)
   carrierwave
-  codemirror-rails
   coffee-rails (~> 4.2)
   faker (>= 1.7.3)
+  font-awesome-rails
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
   jbuilder (~> 2.5)
