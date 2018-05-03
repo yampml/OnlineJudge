@@ -76,10 +76,11 @@ Rails.application.routes.draw do
 
   resources :blogs, only: [:create, :destroy]
 
+  resources :submissions, only: [:new, :create]
   resources :problems do
-    member do
+
       resources :submissions, only: [:new, :create] 
-    end
+    
   end
 
 
@@ -87,7 +88,6 @@ Rails.application.routes.draw do
     resources :problems, only: [:new, :edit, :create, :update, :destroy]
   end 
 
-  # resources :submissions, only: [:new, :create]
 
 
   

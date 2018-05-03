@@ -2,4 +2,4 @@
 <iframe class="embed-responsive-item" src = "<%= path = @problem.file_name[0].to_s %>"></iframe> %>
 </div>
 
-<%= link_to "Submit solution", "#", class:"btn btn-info" %>
+<%= link_to "Submit solution", new_problem_submission_path(@problem), class:"btn btn-info" %>
