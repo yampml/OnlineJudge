@@ -1,3 +1,4 @@
+<%@problems = Problem.order("created_at desc").all%>
 
 </ul> 
 <div class="card">
@@ -7,10 +8,14 @@
 
     <table class="table table-striped">
 	  
-	  <tbody>
-         
+	<tbody>
+          <% @problems.each do |probs| %>
+          <tr>
+            <td scope ="row"><%= link_to probs.name.titleize, probs %></td>
+            <td>Posted <%= time_ago_in_words(probs.created_at)%> ago</td>
+          </tr>
+          <% end %>
         </tbody>  
-
 	</table>
  
 </div>

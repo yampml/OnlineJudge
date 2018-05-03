@@ -1,14 +1,4 @@
-<div class="card card-newprob bg-light mb-3">
-  <div class= "card-header text-center">
-    New Problem
-  </div>
-  
-    <% @problems.each do |probs| %>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= link_to probs.name.titleize, probs%></li>
-    </ul>
-    <% end %>
-  </div>
+<%= render "shared/new_exercise" %>
 <div class="wrapper">  
 <% if @feed_items.any? %>
   <ol class="blogs">
