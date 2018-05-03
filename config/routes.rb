@@ -46,11 +46,25 @@
 #                 DELETE /admin/problems/:id(.:format)           problems#destroy
 
 Rails.application.routes.draw do
-  get 'problems/index', to: 'problems#index', as: 'problemset'
+  # get 'problems/index', to: 'problems#index', as: 'problemset'
 
+<<<<<<< HEAD
   get 'problems/:id', to: 'problems#show', as: 'problem' 
   
   delete 'problems/:id', to: 'problems#destroy'
+=======
+  # get 'problems/:id', to: 'problems#show', as: 'problem' 
+
+  # get 'problems/new'
+
+  # get 'problems/edit'
+
+  # get 'problems/create'
+
+  # get 'problems/update'
+
+
+>>>>>>> Son
 
   get 'sessions/new'
 
