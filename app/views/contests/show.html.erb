@@ -1,0 +1,18 @@
+
+<table class="table table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Problem name</th>
+    <th>Time Limit</th>
+    <th>Memory Limit</th>
+    </tr>
+    <% @contest.problems.each do |probs| %>
+      <tr>
+        <td><%= link_to probs.id, contest_problem_path(@contest, probs) %></td>
+        <td><%= link_to probs.name.titleize, contest_problem_path(@contest, probs) %></td>
+        <td><%= probs.timelimit%></td>
+        <td><%= probs.memlimit%></td>
+       
+      </tr>
+    <% end %>
+</table>

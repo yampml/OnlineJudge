@@ -14,6 +14,7 @@
 
 class User < ApplicationRecord
 	has_many :submissions
+	has_and_belongs_to_many :contests
 	has_many :blogs, dependent: :destroy
 	attr_accessor :remember_token
 

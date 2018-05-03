@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(version: 20180503104438) do
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
+  create_table "contests", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.integer "duration"
+    t.integer "is_running"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contests_users", id: false, force: :cascade do |t|
+    t.bigint "contest_id", null: false
+    t.bigint "user_id", null: false
+  end
+
   create_table "problems", force: :cascade do |t|
     t.string "name"
     t.float "timelimit"
@@ -35,6 +49,8 @@ ActiveRecord::Schema.define(version: 20180503104438) do
     t.datetime "updated_at", null: false
     t.json "file_name"
     t.string "problem_type"
+    t.integer "contest_id"
+    t.integer "is_show"
   end
 
   create_table "submissions", force: :cascade do |t|
@@ -46,6 +62,7 @@ ActiveRecord::Schema.define(version: 20180503104438) do
     t.datetime "updated_at", null: false
     t.bigint "problem_id"
     t.string "solution_name"
+    t.integer "contest_id"
     t.index ["problem_id"], name: "index_submissions_on_problem_id"
     t.index ["user_id"], name: "index_submissions_on_user_id"
   end

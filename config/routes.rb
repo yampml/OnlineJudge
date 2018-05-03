@@ -71,20 +71,29 @@ Rails.application.routes.draw do
 
   resources :blogs, only: [:create, :destroy]
 
-  resources :submissions, only: [:new, :create]
-  resources :problems do
+  resources :contests, only: [:index, :show]
 
-      resources :submissions, only: [:new, :create] 
-    
+  resources :submissions, only: [:new, :create]
+  
+  get 'problemset', to: 'problems#index', as: 'problemset'
+
+  get 'problems/:id', to: 'problems#show', as: 'problem' 
+  
+  scope '/admin' do
+    resources :problems, only: [:new, :edit, :create, :update, :destroy]
+    resources :contests, only: [:new, :create, :edit, :update, :destroy]
   end
 
 
-  scope '/admin' do
-    resources :problems, only: [:new, :edit, :create, :update, :destroy]
-  end 
+  resources :problems do
+    resources :submissions, only: [:new, :create] 
+  end
 
+  resources :submissions, only: [:new, :create]
 
-
-  
+  resources :contests do
+      resources :problems, only: [:show]
+      resources :submissions, only: [:new, :create]
+  end
 
 end
