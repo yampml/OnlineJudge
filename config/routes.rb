@@ -67,12 +67,18 @@ Rails.application.routes.draw do
 
   resources :blogs, only: [:create, :destroy]
 
+  resources :problems do
+    member do
+      resources :submissions, only: [:new, :create] 
+    end
+  end
+
 
   scope '/admin' do
     resources :problems, only: [:new, :edit, :create, :update, :destroy]
   end
 
-  resources :submissions, only: [:new, :create]
+  # resources :submissions, only: [:new, :create]
 
 
   
