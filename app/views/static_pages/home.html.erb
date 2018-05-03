@@ -1,5 +1,21 @@
 <% if logged_in? %>
-  <%= render 'static_pages/front_page'%>
+<div class= "row">
+  <div class="col-md-9">
+    <div class="card bg-light card-form">
+
+      <div class="card-header text-center">
+        <h3 id="blogFeedTitle">Blogs</h3>
+      </div>
+      <div>
+        <%= render 'static_pages/front_page'%>
+      </div>
+    </div>
+  
+</div>
+<div class="col-md-3">
+
+  <%= render 'shared/new_exercise'%>
+</div>
 <% else %>
 <div class="jumbotron">
   <h1 class="display-4"> This is not a header nor a footer, so it is a main</h1>
