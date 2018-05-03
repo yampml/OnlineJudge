@@ -16,9 +16,9 @@
           <tr>
             <td><%= link_to probs.id, probs %></td>
             <td><%= link_to probs.name.titleize, probs %></td>
-            <td><%= probs.timelimit%></td>
+            <td><%= probs.timelimit%> ms</td>
             <td>
-              <%= probs.memlimit%>
+              <%= probs.memlimit%> KB
             </td>
             <% if current_user.admin?%>
             <td><%= link_to "Delete problem", probs,  method: :delete, 
