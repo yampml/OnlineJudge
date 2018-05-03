@@ -1,30 +1,45 @@
 <% provide(:title, 'Submit solution') %>
 
+<div class="wrapper">  
+    <div class="row">
+    	<div class="col-md-9">
 
-
+		    <div class="card bg-light">
+		    	<h5 class="card-title text-center veryfirstLabel" >Summit solution</h5>
 <textarea id="editor" rows="30" style="width: 100%">
-public class Test {
+	public class Test {
 
-  public static void main(String[] args) throws Exception {
-    System.out.println("Hello world!");
-  }
+	  public static void main(String[] args) throws Exception {
+	    System.out.println("Hello world!");
+	  }
 
-}
+	}
 </textarea>
 
-<script>
-$('#editor').ace({ theme: 'twilight', lang: 'java' })
-</script>
+				<script>
+				$('#editor').ace({ theme: 'twilight', lang: 'java' })
+				</script>
 
-  <div>
-	<div>
-		<%= form_for(@submission, url: submissions_path) do |f| %>
-			<%= render 'shared/error_messages', object: f.object %>
+			  	<div>
+					<div class="form-group">
+						<%= form_for(@submission, url: submissions_path) do |f| %>
+						<%= render 'shared/error_messages', object: f.object %>
 
-			<%= f.label :solution_name, "File" %>
-			<%= f.file_field :solution_name %>
+						<%= f.label :solution_name, "Choose file or source code" ,class:"submitBasicLabel"%>
+						<%= f.file_field :solution_name ,class:"form-control-file"%>
 
-			<%= f.submit "Submit"%>
-		<% end %>
+						<%= f.submit "Submit", class:"btn btn-success buttonsummit"%>
+						<% end %>
+					</div>
+			  	</div>
+		    </div>
+		    
+		</div>
+
+      	<div class="col-md-3">
+	       <%= render 'shared/new_exercise'%>
+      	</div>
+    
+  	</div>
 </div>
-</div>
+
