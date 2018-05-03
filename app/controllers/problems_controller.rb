@@ -34,7 +34,9 @@ class ProblemsController < ApplicationController
   end
 
   def destroy
-  
+    Problem.find(params[:id]).destroy
+    flash[:success] = "Problem delete"
+    redirect_to problemset_path
   end
 
   private

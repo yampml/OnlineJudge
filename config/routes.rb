@@ -50,7 +50,8 @@ Rails.application.routes.draw do
 
   get 'problems/update'
 
-
+  
+  delete 'problems/:id', to: 'problems#destroy'
 
   get 'sessions/new'
 

@@ -1,19 +1,33 @@
-
-<table class="table table-striped">
-  <tr>
-    <th>ID</th>
-    <th>Problem name</th>
-    <th>Time Limit</th>
-    <th>Memory Limit</th>
-    </tr>
-    <% @problems.each do |probs| %>
-    <tr>
-      <td><%= link_to probs.id, probs %></td>
-      <td><%= link_to probs.name.titleize, probs%></td>
-      <td><%= probs.timelimit%></td>
-      <td><%= probs.memlimit%></td>
-      <td><%= link_to "Delete problem",
+<div class= "row">
+  <div class="col-md-10 offset-md-1">
+    <div class="table-responsive">
+      <table class="table bg-light table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Problem name</th>
+            <th>Time Limit</th>
+            <th>Memory Limit</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @problems.each do |probs| %>
+          <tr>
+            <td><%= link_to probs.id, probs %></td>
+            <td><%= link_to probs.name.titleize, probs %></td>
+            <td><%= probs.timelimit%></td>
+            <td>
+              <%= probs.memlimit%>
+            </td>
+            <% if current_user.admin?%>
+            <td><%= link_to "Delete problem", probs,  method: :delete, 
                                   data: { confirm: "Your deletion can't be restored" } %></td>
-      </tr>
-    <% end %>
-</table>
+            <%end%> 
+          </tr>
+          <% end %>
+        </tbody>  
+      </table>
+    </div>
+  </div>
+</div>
