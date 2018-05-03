@@ -1,0 +1,20 @@
+<% provide(:title, 'Create new contest') %>
+
+<div>
+	<div>
+		<%= form_for(@contest, url: contests_path) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+
+			<%= f.label :start_time, "Start time" %>
+			<%= f.datetime_field :start_time %>
+
+			<%= f.label :duration, "Duration (in minutes)" %>
+			<%= f.number_field :duration %>
+
+			<%= f.submit "Upload"%>
+		<% end %>
+	</div>
+</div>

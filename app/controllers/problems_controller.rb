@@ -9,6 +9,14 @@ class ProblemsController < ApplicationController
   def show
     #@problem = Problem.find(params[:id])
     @problem = Problem.find_by(id: params[:id])
+    @pdffile = nil
+    for f in @problem.file_name
+      c = f.to_s
+      if(c[c.length-4..c.length] == ".pdf") 
+        @pdffile = c
+        break
+      end
+    end
   end
 
   def new

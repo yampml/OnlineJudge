@@ -1,0 +1,18 @@
+
+<table class="table table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Contest</th>
+    <th>Time</th>
+    <th></th>
+    </tr>
+    <% @contests.each do |cons| %>
+    <tr>
+      <td><%= link_to cons.id, cons %></td>
+      <td><%= link_to cons.name.titleize, cons%></td>
+      <td><%= cons.start_time%></td>
+      <td><%= link_to "Delete contest",
+                                  data: { confirm: "Your deletion can't be restored" } %></td>
+      </tr>
+    <% end %>
+</table>

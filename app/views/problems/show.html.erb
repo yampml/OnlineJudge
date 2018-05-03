@@ -1,8 +1,8 @@
-<%= link_to "Problems set", problems_path, class: "btn btn-info"%>
+<%= link_to "Problems set", problemset_path, class: "btn btn-info"%>
 <%= link_to "Submit solution", new_problem_submission_path(@problem), class:"btn btn-info" %>
 <%= link_to "Submission table", "#", class: "btn btn-info"%>
 
 <div class="embed-responsive embed-responsive-16by9 iframe">
-<iframe class="embed-responsive-item" src = "<%= path = @problem.file_name[0].to_s %>"></iframe> %>
+<iframe class="embed-responsive-item" src = "<%= path = @pdffile %>"></iframe> %>
 </div>
 
