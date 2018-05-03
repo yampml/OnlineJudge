@@ -3,22 +3,28 @@ class SubmissionsController < ApplicationController
 
 	def new
 		@submission = Submission.new
+		@problem = Problem.find(params[:problem_id])
 	end
 
-	def create
-
-		@problem = Problem.first #example
+	def create	
 		#byebug
 		@submission = Submission.new(submission_params)
-		@submission.problem_id = @problem.id
 		@submission.user_id = current_user.id 
+		@submission.problem_id = params[:problem_id]
+		@submission.time_at_submit = Time.now
 
 		if @submission.save
 			flash[:success] = "Okay, saved!"
-			redirect_to :back
+			ActiveJob::SubmissionProcessJob.perform_now(@submission[:id])
+		
+			redirect_to @submission
 		else
 			render 'new'
 		end
+	end
+
+	def show
+		@submission = Submission.find(params[:id])
 	end
 
 	private

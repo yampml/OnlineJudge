@@ -57,7 +57,9 @@ ActiveRecord::Schema.define(version: 20180503104438) do
     t.bigint "user_id"
     t.binary "source_code"
     t.datetime "time_at_submit"
-    t.json "result"
+    t.string "result"
+    t.string "compile_log"
+    t.string "lang"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "problem_id"

@@ -84,6 +84,7 @@ Rails.application.routes.draw do
     resources :contests, only: [:new, :create, :edit, :update, :destroy]
   end
 
+  resources :submissions, only: [:show]
 
   resources :problems do
     resources :submissions, only: [:new, :create] 
