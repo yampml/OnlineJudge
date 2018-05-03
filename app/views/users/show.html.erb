@@ -1,23 +1,29 @@
 <% provide(:title, @user.name) %>
   <div class="wrapper">  
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <section>
-        <div class="card text-center bg-light mb-3 align-items-center">
+          <div class="card text-center bg-light mb-3 align-items-center">
           <div><%= gravatar_for @user,  class: "card-img-bottom" %></div>
-        <div class="card-body">
-          <h5 class="card-title"><%= @user.name %></h5>
-          <span><%= pluralize(@user.blogs.count, "blog") %></span>
-        </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= @user.name %></h5>
+            <ul class="list-unstyled">
+              <li><%= pluralize(@user.blogs.count, "blog") %></li>
+              <li><%= @user.created_at.to_date %></li>
+              <li class="text-primary"><%= @user.email %></li>
+            </ul>
+          </div>
+          </div>
+          <%= render 'shared/blog_form' %>
        </section>
       </div>
-  <div class="col-md-9">
-    <div class="card bg-light card-form">
+  <div class="col-md-8">
+    <div class="card bg-light">
       <% if @user.blogs.any? %>
       <div class="card-header text-center">
         <h3 id="blogFeedTitle">Blogs - <%= @user.blogs.count %></h3>
       </div>
-      <div>
+      <div class="card-body">
         <ol class="blogs">
           <%= render @blogs %>
         </ol>
@@ -27,4 +33,3 @@
     <% end %>
   </div>  
   </div>
-</div>
