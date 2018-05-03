@@ -25,11 +25,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", current_user ,class:"dropdown-item"%>
-<<<<<<< HEAD
-              <%= link_to "Submit", "#",class:"dropdown-item" %>
-=======
               <%= link_to "Submit", "#" ,class:"dropdown-item" %>
->>>>>>> Son
               <% if current_user.admin? %>
                 <%= link_to "Upload Problem", new_problem_path ,class:"dropdown-item" %> 
               <% end %> 

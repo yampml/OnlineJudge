@@ -48,11 +48,6 @@
 Rails.application.routes.draw do
   # get 'problems/index', to: 'problems#index', as: 'problemset'
 
-<<<<<<< HEAD
-  get 'problems/:id', to: 'problems#show', as: 'problem' 
-  
-  delete 'problems/:id', to: 'problems#destroy'
-=======
   # get 'problems/:id', to: 'problems#show', as: 'problem' 
 
   # get 'problems/new'
@@ -64,7 +59,6 @@ Rails.application.routes.draw do
   # get 'problems/update'
 
 
->>>>>>> Son
 
   get 'sessions/new'
 
