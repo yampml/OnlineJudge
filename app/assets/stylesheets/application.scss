@@ -12,14 +12,15 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
  @import "bootstrap";
 
-$green-nhat:#e1f7d9;
+
 
 body {
 	
-	background-color:$green-nhat;
+	background-color:#eae1e1;
 
 }
 
