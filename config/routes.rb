@@ -38,17 +38,17 @@
 #   new_submission GET    /submissions/new(.:format)         submissions#new
 
 Rails.application.routes.draw do
-  get 'problems/index', to: 'problems#index', as: 'problemset'
+  # get 'problems/index', to: 'problems#index', as: 'problemset'
 
-  get 'problems/:id', to: 'problems#show', as: 'problem' 
+  # get 'problems/:id', to: 'problems#show', as: 'problem' 
 
-  get 'problems/new'
+  # get 'problems/new'
 
-  get 'problems/edit'
+  # get 'problems/edit'
 
-  get 'problems/create'
+  # get 'problems/create'
 
-  get 'problems/update'
+  # get 'problems/update'
 
 
 
