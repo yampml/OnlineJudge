@@ -14,7 +14,8 @@
 
 class Problem < ApplicationRecord
 	has_many :submissions
-
+	belongs_to :contest, optional: true
+	
 	mount_uploaders :file_name, ProbUploader
 
 end
