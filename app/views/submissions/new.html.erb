@@ -4,8 +4,10 @@
     <div class="row">
     	<div class="col-md-9 ">
 
-		    <div class="card bg-light card-form">
-		    	<h5 class="card-title text-center" >Summit solution</h5>
+		    <div class="card bg-light">
+		    	<h5 class="card-title text-center veryfirstLabel" >Summit solution</h5>
+				  <%= select(:lang, :value, { "Java 8" => 1, "GNU C++" => 2, "Python" => 3 }) %>
+
 <textarea id="editor" rows="30" style="width: 100%">
 	public class Test {
 
@@ -27,9 +29,11 @@
 
 						<%= f.label :solution_name, "Choose file or source code" ,class:"submitBasicLabel"%>
 						<%= f.file_field :solution_name ,class:"form-control-file"%>
-
+						<div>Chú ý không sử dụng các hàm system("pause"), fopen, freopen, fstream, getch, kbhit (xem thêm phần hỏi đáp).
+						 Mã thoát chương trình là 0. Không in ra các câu nhắc như "Nhap n", "Ket qua la".</div>
 						<%= f.submit "Submit", class:"btn btn-success buttonsummit"%>
 						<% end %>
+						
 					</div>
 			  	</div>
 		    </div>

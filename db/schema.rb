@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180428161757) do
+ActiveRecord::Schema.define(version: 20180503104438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,25 @@ ActiveRecord::Schema.define(version: 20180428161757) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.integer "vote_up"
+    t.integer "vote_down"
     t.index ["user_id", "created_at"], name: "index_blogs_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "contests", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.integer "duration"
+    t.integer "is_running"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contests_users", id: false, force: :cascade do |t|
+    t.bigint "contest_id", null: false
+    t.bigint "user_id", null: false
   end
 
   create_table "problems", force: :cascade do |t|
@@ -32,6 +49,8 @@ ActiveRecord::Schema.define(version: 20180428161757) do
     t.datetime "updated_at", null: false
     t.json "file_name"
     t.string "problem_type"
+    t.integer "contest_id"
+    t.integer "is_show"
   end
 
   create_table "submissions", force: :cascade do |t|
@@ -43,6 +62,7 @@ ActiveRecord::Schema.define(version: 20180428161757) do
     t.datetime "updated_at", null: false
     t.bigint "problem_id"
     t.string "solution_name"
+    t.integer "contest_id"
     t.index ["problem_id"], name: "index_submissions_on_problem_id"
     t.index ["user_id"], name: "index_submissions_on_user_id"
   end

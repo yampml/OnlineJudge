@@ -16,6 +16,6 @@
 class Submission < ApplicationRecord
   belongs_to :user
   belongs_to :problem
-
+  belongs_to :contest, optional: true
   mount_uploader :solution_name, SolutionUploader
 end

@@ -10,8 +10,8 @@
       <ul class="navbar-nav mr-auto">
         
         <li class="nav-item"><%= link_to "Home", root_path ,class:"nav-link"%></li>
-        <li class="nav-item"><%= link_to "Contest", '#' ,class:"nav-link"%></li>
-        <li class="nav-item"><%= link_to "Problemset", problems_path ,class:"nav-link"%></li>
+        <li class="nav-item"><%= link_to "Contest", contests_path ,class:"nav-link"%></li>
+        <li class="nav-item"><%= link_to "Problemset", problemset_path ,class:"nav-link"%></li>
         <li class="nav-item"><%= link_to "Help", help_path,class:"nav-link"%></li>
 
       </ul>
@@ -27,7 +27,8 @@
               <%= link_to "Profile", current_user ,class:"dropdown-item"%>
               <%= link_to "Submit", new_submission_path ,class:"dropdown-item" %>
               <% if current_user.admin? %>
-                <%= link_to "Upload Problem", new_problem_path ,class:"dropdown-item" %> 
+                <%= link_to "Upload Problem", new_problem_path,class:"dropdown-item" %> 
+                <%= link_to "Create Contest", new_contest_path,class:"dropdown-item" %> 
               <% end %> 
               <%= link_to "Settings", edit_user_path(current_user) ,class:"dropdown-item"%>
               <div class="dropdown-divider"></div>
