@@ -1,8 +1,25 @@
-<%= link_to "Problems set", problemset_path, class: "btn btn-info"%>
-<%= link_to "Submit solution", new_problem_submission_path(@problem), class:"btn btn-info" %>
-<%= link_to "Submission table", submissions_path, class: "btn btn-info"%>
+<div class= "row">
+  <div class="card col-md-9">
+  		<h2 class="text-center text-success"> <%= @problem.name %> </h2>
+  		<p class="text-center prob-param"> Problem ID: <%= @problem.id %> </p>
+  		<p class="text-center prob-param"> Timelimit: <%= @problem.timelimit %> </p>
+  		<p class="text-center prob-params"> Memlimit: <%= @problem.memlimit %> </p>
+  		<div class="text-center mb-3">
+		<%= link_to "Problems set", problemset_path, class: "btn btn-info"%>
+		<%= link_to "Submit solution", new_problem_submission_path(@problem), class:"btn btn-info" %>
+		<%= link_to "Submission table", submissions_path, class: "btn btn-info"%>
+		</div>
 
-<div class="embed-responsive embed-responsive-16by9 iframe">
-<iframe class="embed-responsive-item" src = "<%= path = @pdffile %>"></iframe> %>
-</div>
+    <div class="table-responsive">
+    
+		<div class="embed-responsive embed-responsive-16by9 iframe">
+		<iframe class="embed-responsive-item" src = "<%= path = @pdffile %>"></iframe> %>
+		</div>
+		</div>
+		</div>
+    
+  <div class="col-md-3">
+         <%= render 'shared/new_exercise'%>
+        </div>
+ </div>
 
