@@ -4,8 +4,9 @@ class CreateSubmissions < ActiveRecord::Migration[5.1]
       t.references :user, foreign_key: true
       t.binary :source_code, :limit => 10.megabyte
       t.datetime :time_at_submit
-      t.json :result
-
+      t.string :result
+      t.string :compile_log
+      t.string :lang
       t.timestamps
     end
   end
