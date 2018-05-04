@@ -19,8 +19,9 @@ class SubmissionProcessJob < ApplicationJob
 		_, status = Process.wait2(pid)
 
 		if !status.exited? || status.exitstatus != 0
+			cmp_log = nil
 	      begin
-	        cmp_log = File.read(submission_path + 'compile_log')
+	        cmp_log = File.read(submission_path + '/compile_log')
 	      rescue
 
 	      end

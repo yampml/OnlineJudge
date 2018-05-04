@@ -55,7 +55,7 @@ class ContestsController < ApplicationController
 			for prob in @problem
 				k1 = prob.submissions.where(user_id: par.id, contest_id: @contest.id).count 
 				@boardCount[i][j] = k1
-				k2 = prob.submissions.where(result: "Accepted", user_id: par.id).count
+				k2 = prob.submissions.where(result: "Accepted", user_id: par.id, contest_id: @contest.id).count
 				if k2 > 0
 					@boardAC[i][j] = 1
 				else 
@@ -66,14 +66,18 @@ class ContestsController < ApplicationController
 			i+=1
 			j=0
 		end
-		
 	end
 
 	def destroy
-		Contest.find(params[:id]).problems.each do |prob|
+		c = Contest.find(params[:id])
+		c.problems.each do |prob|
 			prob.update_attribute(:contest_id, nil)
 		end
-		Contest.find(params[:id]).destroy
+		c.submissions.each do |subs|
+			subs.update_attribute(:contest_id, nil)
+		end
+
+		c.destroy
 		flash[:success] = "Contest deleted"
 		redirect_to contests_path
 	end
