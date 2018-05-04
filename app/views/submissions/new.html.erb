@@ -23,9 +23,12 @@
 				</script>
 
 			  	<div>
+
 					<div class="form-group">
 						<%= form_for(@submission, url: submissions_path) do |f| %>
-						<%= render 'shared/error_messages', object: f.object %>
+						<%= render 'shared/error_messages', object: f.object %>						
+						
+						<%= hidden_field_tag :problem_id, @problem.id %>
 
 						<%= f.label :solution_name, "Choose file or source code" ,class:"submitBasicLabel"%>
 						<%= f.file_field :solution_name ,class:"form-control-file"%>
