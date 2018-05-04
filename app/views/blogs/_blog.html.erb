@@ -10,7 +10,7 @@
 		<span class="user"><%= link_to blog.user.name, blog.user ,class:"user"%></span> <span class="timestamp">
 			- Posted <%= time_ago_in_words(blog.created_at) %> ago.
 			<% if (logged_in? && (current_user.admin? ||  current_user?(blog.user))) %>
-				<%= link_to "delete", blog, method: :delete, data: { confirm: "You sure?" }, class: "badge badge-danger" %>
+				<%= link_to "Delete", blog, method: :delete, data: { confirm: "You sure?" }, class: "badge badge-danger" %>
 			<% end %>
 			<%if logged_in? %>
 				<%= link_to like_blog_path(blog), method: :put do %>
