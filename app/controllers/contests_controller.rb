@@ -69,10 +69,6 @@ class ContestsController < ApplicationController
 		
 	end
 
-	def submissions_list
-
-	end
-
 	private
 
 	def contest_params
