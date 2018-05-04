@@ -1,8 +1,8 @@
 <div class= "row">
   <div class="col-md-9">
     <div class="table-responsive">
-      <table class="table bg-light table-striped">
-        <thead class="bg-light">
+      <table class="table bg-light table-striped ">
+        <thead class="bg-light ">
           <tr>
             <th>ID</th>
             <th>Problem name</th>
@@ -13,7 +13,7 @@
         <tbody>
           <% @problems.each do |probs| %>
           <tr>
-            <td><%= link_to probs.id, probs %></td>
+            <th ><%= link_to probs.id, probs %></th>
             <td><%= link_to probs.name.titleize, probs %></td>
             <td><%= probs.timelimit%> ms</td>
             <td>
