@@ -3,6 +3,7 @@
     <div class="table-responsive">
       <table class="table bg-light table-striped">
   <thead class="bg-light">
+
   <tr>
     <th>ID</th>
     <th>Contest</th>
@@ -14,25 +15,26 @@
     <tr>
       <td><%= link_to cons.id, cons %></td>
       <td><%= link_to cons.name.titleize, cons%></td>
-      <td>
-        <%= cons.start_time %>  
+
+      <td class="row">
+        <div class="col-md-8"><%= cons.start_time %></div>
+        <div class="row col-md-4">  
+
         <% if logged_in? %> 
           <% if cons.start_time > Time.now %>
-            <%= form_for(cons) do |f| %>
+            <%= form_for cons, :html => {:class => 'contest_form'} do |f| %>
               <%= hidden_field_tag :user_id, current_user.id %>
-              <%= f.submit "Register"%>
+              <%= f.submit "Register",class:"btn btn-primary btn-sm"%>
             <% end %>
           <% end %>
         <% else %>
           <%= " || Must login to register to contest" %>
         <% end %>
+        <% if logged_in? && current_user.admin? %> 
+            <%= link_to "Delete contest", cons, method: :delete, data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm" %>
+        </div>
       </td>
 
-
-      <% if logged_in? && current_user.admin? %> 
-        <td>
-            <%= link_to "Delete contest", cons, method: :delete, data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm float-right" %>
-            </td>
         </tr>
       <% end %>
 
