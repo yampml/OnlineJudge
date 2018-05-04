@@ -23,11 +23,7 @@ class BlogsController < ApplicationController
 	private
 
 		def blog_params
-<<<<<<< HEAD
-			params.require(:blog).permit(:title, :content)
-=======
 			params.require(:blog).permit(:content, :title)
->>>>>>> duc
 		end
 
 		def correct_user
