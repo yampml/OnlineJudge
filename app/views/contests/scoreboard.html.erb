@@ -1,0 +1,31 @@
+
+<table class="table table-striped">
+  <tr>
+    <th>ID</th>
+    <th>User</th>
+    <% @problem.each do |prob| %>
+      <th><%= prob.name %></th>
+    <% end %>
+  </tr>
+  <% @participant.each_with_index do |par, i| %>
+    <tr>
+      <td><%= link_to par.id, par %></td>
+      <td><%= link_to par.name, par %></td>
+      
+      <% @boardCount[i].each_with_index do |v1, i2| %>
+        <td>
+          <% if @boardAC[i][i2] == 1 %>
+            +
+          <% elsif @boardAC[i][i2] == 0 %>
+            
+          <% else %>
+            -
+          <% end %>
+          <%= v1 %>
+        </td>
+
+      <% end %>
+      
+    </tr>
+  <% end %>
+</table>

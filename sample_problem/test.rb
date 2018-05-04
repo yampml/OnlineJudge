@@ -1,2 +1,2 @@
 a = gets.chomp
-puts 1
+puts a

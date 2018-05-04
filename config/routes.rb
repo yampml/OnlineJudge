@@ -96,6 +96,7 @@ Rails.application.routes.draw do
     resources :problems, only: [:show] do
       resources :submissions, only: [:new, :create]
     end
+    resources :submissions, only: [:index]
   end
 
   get '/contests/:id/scoreboard', to: 'contests#scoreboard', as: 'contest_scoreboard'
