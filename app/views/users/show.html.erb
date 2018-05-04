@@ -12,9 +12,11 @@
               <li><%= @user.created_at.to_date %></li>
               <li class="text-primary"><%= @user.email %></li>
             </ul>
+            <% if  current_user?(@user)%>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AddPost">
             Add new post
             </button>
+            <%end%>
           </div>
           </div>
           
