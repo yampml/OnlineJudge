@@ -16,10 +16,10 @@
         <td>
           <% if @boardAC[i][i2] == 1 %>
             +
-          <% elsif @boardAC[i][i2] == 0 %>
-            
-          <% else %>
+          <% elsif @boardAC[i][i2] == 0 && @boardCount[i][i2] > 0 %>
             -
+          <% else %>
+            
           <% end %>
           <%= v1 %>
         </td>
