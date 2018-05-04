@@ -1,20 +1,29 @@
-<% if @contest.is_running == 1 %>
-  <%= Runnnninnnnn %>
-<% end %>
-<table class="table table-striped">
-  <tr>
-    <th>ID</th>
-    <th>Problem name</th>
-    <th>Time Limit</th>
-    <th>Memory Limit</th>
-    </tr>
-    <% @contest.problems.each do |probs| %>
-      <tr>
-        <td><%= link_to probs.id, contest_problem_path(@contest, probs) %></td>
-        <td><%= link_to probs.name.titleize, contest_problem_path(@contest, probs) %></td>
-        <td><%= probs.timelimit%></td>
-        <td><%= probs.memlimit%></td>
-       
-      </tr>
-    <% end %>
-</table>
+<div class= "row">
+  <div class="col-md-9">
+    <div class="table-responsive">
+      <table class="table bg-light table-striped">
+        <thead class="bg-light">
+        <tr>
+          <th>ID</th>
+          <th>Problem name</th>
+          <th>Time Limit</th>
+          <th>Memory Limit</th>
+          </tr>
+          </thead>
+          <% @contest.problems.each do |probs| %>
+            <tr>
+              <td><%= link_to probs.id, contest_problem_path(@contest, probs) %></td>
+              <td><%= link_to probs.name.titleize, contest_problem_path(@contest, probs) %></td>
+              <td><%= probs.timelimit%></td>
+              <td><%= probs.memlimit%></td>
+             
+            </tr>
+          <% end %>
+      </table>
+    </div>
+    </div>
+
+  <div class="col-md-3">
+         <%= render 'shared/new_exercise'%>
+        </div>
+  </div>

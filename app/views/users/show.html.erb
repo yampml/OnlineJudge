@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-4">
         <section>
-          <div class="card text-center bg-light mb-3 align-items-center">
+          <div class="card text-center bg-light mb-3 align-items-center border-success">
           <div><%= gravatar_for @user,  class: "card-img-bottom" %></div>
           <div class="card-body">
             <h5 class="card-title"><%= @user.name %></h5>
@@ -12,16 +12,29 @@
               <li><%= @user.created_at.to_date %></li>
               <li class="text-primary"><%= @user.email %></li>
             </ul>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#AddPost">
+            Add new post
+            </button>
           </div>
           </div>
-          <%= render 'shared/blog_form' %>
+          
+          <div class="modal fade" id="AddPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                  <%= render 'shared/blog_form' %>
+              </div>
+            </div>
+          </div>
+
+
+          
        </section>
       </div>
   <div class="col-md-8">
-    <div class="card bg-light">
+    <div class="card bg-light border-success">
       <% if @user.blogs.any? %>
-      <div class="card-header text-center">
-        <h3 id="blogFeedTitle">Blogs - <%= @user.blogs.count %></h3>
+      <div class="card-header text-center border-success">
+        <h3 class="blogFeedTitle">BLOGS - <%= @user.blogs.count %></h3>
       </div>
       <div class="card-body">
         <ol class="blogs">

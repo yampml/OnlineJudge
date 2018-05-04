@@ -7,7 +7,7 @@
     padding: 0;
     li {
       padding: 10px 0;
-      border-top: 1px solid #00c54d;
+      border-bottom: 1px solid #00c54d;
     }
     .user {
       margin-top: 5em;
@@ -22,7 +22,7 @@
     }
     .content {
       display: block;
-      margin-left: 30px;
+      margin-top:10px;
       img {
         display: block;
         padding: 5px 0;
@@ -37,6 +37,7 @@
       margin-right: 10px;
       margin-top: 5px;
       height:37px;
+      float:left;
     }
   }
   
@@ -54,9 +55,11 @@
     }
   }
   
-  #blogFeedTitle {
+  .blogFeedTitle {
       
       color:#00c54d;
+      font-weight:light;
+      letter-spacing: -1.5px;
   
   }
   
@@ -64,4 +67,26 @@
     
     float:left;
   
+  }
+
+  #RightSide {
+
+    h5 { 
+
+      padding-top:5px;
+      font-size:30px;
+      a {
+
+        color:#212529;
+        &:hover {
+
+        color:#007bff;
+        text-decoration:none;
+
+        }
+
+      }
+      
+    }
+
   }
