@@ -22,7 +22,7 @@
             </td>
             <% if current_user.admin?%>
             <td><%= link_to "Delete problem", probs,  method: :delete, 
-                                  data: { confirm: "Your deletion can't be restored" } %></td>
+                                  data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm" %></td>
             <%end%> 
           </tr>
           <% end %>

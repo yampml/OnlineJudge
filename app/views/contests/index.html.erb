@@ -16,7 +16,7 @@
       <td><%= link_to cons.name.titleize, cons%></td>
       <td><%= cons.start_time%></td>
       <td><%= link_to "Delete contest",
-                                  data: { confirm: "Your deletion can't be restored" } %></td>
+                                  data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>
     </table>
