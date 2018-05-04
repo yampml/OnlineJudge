@@ -1,8 +1,12 @@
 <% provide(:title, 'Solution status') %>
 
 <div>
-	<h1>Status:</h1>
-	<h2>"<%= @submission.result %>"</h2>
-	<h2>"<%= @submission.compile_log %>"</h2>
+	<p>Source code: </p>
+	<div class="embed-responsive embed-responsive-16by9 iframe">
+		<iframe class="embed-responsive-item" src = "<%= @submission.solution_name.to_s %>"></iframe> %>
+	</div>
+
+	<p>Result: "<%= @submission.result %>"</p>
+	<p>Compile_log: "<%= @submission.compile_log %>"</p>
 
 </div>

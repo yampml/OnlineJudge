@@ -1,6 +1,11 @@
 class SubmissionsController < ApplicationController
 	#need login auth
 
+	def index
+		@submissions = Submission.paginate(page: params[:page])
+		@prob = Problem.all
+	end
+
 	def new
 		@submission = Submission.new
 		@problem = Problem.find(params[:problem_id])
