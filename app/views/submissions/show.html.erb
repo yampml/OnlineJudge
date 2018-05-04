@@ -2,9 +2,11 @@
 
 <div class="row">
 	<div class="col-md-9">
-		<p>Source code: </p>
-		<div class="embed-responsive embed-responsive-16by9 iframe">
-			<iframe class="embed-responsive-item" src = "<%= @submission.solution_name.to_s %>"></iframe>
+		<div class="card ">
+			<div class="card-header bg-dark text-white">Source code: </div>
+			<div class="embed-responsive embed-responsive-16by9 iframe">
+				<iframe class="embed-responsive-item" src = "<%= @submission.solution_name.to_s%>"></iframe>
+			</div>
 		</div>
 	</div>
 
@@ -21,7 +23,7 @@
 			</div>
 			<%end%>
 			<div class="card-body">
-				<p>Compile_log: "<%= @submission.compile_log %>"</p>\
+				<p>Compile_log: "<%= @submission.compile_log %>"</p>
 			</div>
 		</div>
 		</div>
