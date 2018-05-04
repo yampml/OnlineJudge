@@ -12,7 +12,7 @@
     </thead>
     <% @contests.each do |cons| %>
     <tr>
-      <td><%= link_to cons.id, cons %></td>
+      <th><%= link_to cons.id, cons %></th>
       <td><%= link_to cons.name.titleize, cons%></td>
       <td>
         <%= cons.start_time %>  
