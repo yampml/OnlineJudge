@@ -40,7 +40,7 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave'
 gem 'jquery-ace-rails'
 gem "font-awesome-rails"
-
+gem 'acts_as_votable', '~> 0.10.0'
 
 
 

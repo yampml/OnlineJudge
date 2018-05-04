@@ -70,6 +70,12 @@ Rails.application.routes.draw do
   resources :users
 
   resources :blogs, only: [:create, :destroy]
+  resources :blogs do 
+    member do
+      put "like", to: "blogs#upvote"
+      put "dislike", to: "blogs#downvote"
+    end
+  end
 
   resources :contests, only: [:index, :show]
 
