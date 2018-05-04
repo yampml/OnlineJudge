@@ -13,7 +13,7 @@
         <li class="nav-item"><%= link_to "Contest", contests_path ,class:"nav-link"%></li>
         <li class="nav-item"><%= link_to "Problemset", problemset_path ,class:"nav-link"%></li>
         <li class="nav-item"><%= link_to "Submissions", submissions_path ,class:"nav-link"%></li>
-        <li class="nav-item"><%= link_to "Help", help_path,class:"nav-link"%></li>
+
 
       </ul>
 
@@ -33,6 +33,7 @@
                 <%= link_to "Create Contest", new_contest_path,class:"dropdown-item" %> 
               <% end %> 
               <div class="dropdown-divider"></div>
+              <%= link_to "About us", help_path,class:"dropdown-item"%>
               <%= link_to "Log out", logout_path, method: :delete ,class:"dropdown-item"%>
             </div>
           </li>
