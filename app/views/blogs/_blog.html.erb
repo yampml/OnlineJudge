@@ -22,7 +22,11 @@
   					<span ><i class="fa fa-thumbs-down ml-3"></i></span>
 				<% end %>
 			<%end%>
-			<% end %>
+
+			<%else%>
+			<span ><i class="fa fa-thumbs-up"></i></span>
+			<%= blog.get_upvotes.size %>
+						<% end %>
 			<%= commontator_thread(blog) %>
 			
 		</span>
