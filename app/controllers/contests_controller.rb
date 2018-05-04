@@ -69,8 +69,13 @@ class ContestsController < ApplicationController
 		
 	end
 
-	def submissions_list
-
+	def destroy
+		Contest.find(params[:id]).problems.each do |prob|
+			prob.update_attribute(:contest_id, nil)
+		end
+		Contest.find(params[:id]).destroy
+		flash[:success] = "Contest deleted"
+		redirect_to contests_path
 	end
 
 	private
