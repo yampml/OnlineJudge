@@ -4,7 +4,7 @@
     <th>ID</th>
     <th>Contest</th>
     <th>Time</th>
-    <th></th>
+
     </tr>
     <% @contests.each do |cons| %>
     <tr>
@@ -12,18 +12,23 @@
       <td><%= link_to cons.name.titleize, cons%></td>
       <td>
         <%= cons.start_time %>  
-
-        <% if cons.start_time > Time.now %>
-          <%= form_for(cons) do |f| %>
-            <%= hidden_field_tag :user_id, current_user.id %>
-            <%= f.submit "Register"%>
+        <% if logged_in? %> 
+          <% if cons.start_time > Time.now %>
+            <%= form_for(cons) do |f| %>
+              <%= hidden_field_tag :user_id, current_user.id %>
+              <%= f.submit "Register"%>
+            <% end %>
           <% end %>
-
+        <% else %>
+          <%= " || Must login to register to contest" %>
         <% end %>
-
       </td>
-      <td><%= link_to "Delete contest",
-                                  data: { confirm: "Your deletion can't be restored" } %></td>
-      </tr>
+
+
+      <% if logged_in? && current_user.admin? %> 
+        <td><%= link_to "Delete contest",
+                                    data: { confirm: "Your deletion can't be restored" } %></td>
+        </tr>
+      <% end %>
     <% end %>
 </table>

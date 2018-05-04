@@ -1,8 +1,22 @@
-<%= link_to "Problems set", problemset_path, class: "btn btn-info"%>
-<%= link_to "Submit solution", new_problem_submission_path(@problem), class:"btn btn-info" %>
-<%= link_to "Submission table", submissions_path, class: "btn btn-info"%>
+<% if !@contest.nil? && @contest.is_running == 2 %>
+	Contest ended, please view the problem in Problemset
+<% else %>
 
-<div class="embed-responsive embed-responsive-16by9 iframe">
-<iframe class="embed-responsive-item" src = "<%= path = @pdffile %>"></iframe> %>
-</div>
+	<%= link_to "Problems set", problemset_path, class: "btn btn-info"%>
 
+
+	<% if !current_user.nil? %>
+
+		<%= link_to "Submit solution", new_problem_submission_path(@problem), class:"btn btn-info" %>
+	
+	<% else %>
+		<%= link_to "Login to submit", login_path, class:"btn btn-info" %>
+	<% end  %>
+
+	<%= link_to "Submission table", submissions_path, class: "btn btn-info"%>
+
+	<div class="embed-responsive embed-responsive-16by9 iframe">
+	<iframe class="embed-responsive-item" src = "<%= path = @pdffile %>"></iframe> %>
+	</div>
+
+<% end %>

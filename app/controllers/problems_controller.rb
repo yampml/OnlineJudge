@@ -9,6 +9,9 @@ class ProblemsController < ApplicationController
   def show
     #@problem = Problem.find(params[:id])
     @problem = Problem.find_by(id: params[:id])
+    if params[:contest_id] != nil 
+      @contest = @problem.contest
+    end
     @pdffile = nil
     for f in @problem.file_name
       c = f.to_s
