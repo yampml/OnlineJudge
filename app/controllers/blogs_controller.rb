@@ -6,10 +6,11 @@ class BlogsController < ApplicationController
 		@blog = current_user.blogs.build(blog_params)
 		if @blog.save
 			flash[:success] = "Blog created!"
-			redirect_to root_url
+			redirect_to current_user
 		else
+			flash[:danger] = "Blog not created!"
 			@feed_items = []
-			render 'static_pages/home'
+			redirect_to current_user
 		end
 	end
 
@@ -22,7 +23,7 @@ class BlogsController < ApplicationController
 	private
 
 		def blog_params
-			params.require(:blog).permit(:content)
+			params.require(:blog).permit(:content, :title)
 		end
 
 		def correct_user

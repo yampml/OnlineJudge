@@ -1,20 +1,30 @@
 <% provide(:title, 'Create new contest') %>
 
-<div>
-	<div>
-		<%= form_for(@contest, url: contests_path) do |f| %>
+<div class="row ">
+  <div class="col-md-8 offset-md-2">
+    <div class="card border-success mb-3 card-form">
+    <h2 class="SignUp">NEW CONTEST</h2>
+			
+			<%= form_for(@contest, url: contests_path) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
 
+		<div class="form-group">
 			<%= f.label :name %>
 			<%= f.text_field :name %>
+		</div>
 
+		<div class="form-group">
 			<%= f.label :start_time, "Start time" %>
 			<%= f.datetime_field :start_time %>
+		</div>
 
+		<div class="form-group">
 			<%= f.label :duration, "Duration (in minutes)" %>
 			<%= f.number_field :duration %>
+		</div>
 
-			<%= f.submit "Upload"%>
+			<%= f.submit "Upload", class:"btn btn-success"%>
 		<% end %>
-	</div>
+	 </div>
+  </div>
 </div>

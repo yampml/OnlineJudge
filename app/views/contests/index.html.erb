@@ -1,15 +1,20 @@
-
-<table class="table table-striped">
+<div class= "row">
+  <div class="col-md-9">
+    <div class="table-responsive">
+      <table class="table bg-light table-striped">
+  <thead class="bg-light">
   <tr>
     <th>ID</th>
     <th>Contest</th>
     <th>Time</th>
 
     </tr>
+    </thead>
     <% @contests.each do |cons| %>
     <tr>
       <td><%= link_to cons.id, cons %></td>
       <td><%= link_to cons.name.titleize, cons%></td>
+
       <td>
         <%= cons.start_time %>  
         <% if logged_in? %> 
@@ -26,9 +31,18 @@
 
 
       <% if logged_in? && current_user.admin? %> 
-        <td><%= link_to "Delete contest",
-                                    data: { confirm: "Your deletion can't be restored" } %></td>
+        <td><%= cons.start_time%>
+            <%= link_to "Delete contest","#", data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm float-right" %>
+            </td>
         </tr>
       <% end %>
+
     <% end %>
-</table>
+    </table>
+    </div>
+    </div>
+
+  <div class="col-md-3">
+         <%= render 'shared/new_exercise'%>
+        </div>
+  </div>
