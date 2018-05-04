@@ -1,12 +1,12 @@
 <% if logged_in? %>
 <div class= "row">
   <div class="col-md-9">
-    <div class="card bg-light card-form">
+    <div class="card bg-light border-success">
 
-      <div class="card-header text-center">
-        <h3 id="blogFeedTitle">Blogs</h3>
+      <div class="card-header text-center border-success">
+        <h3 class="blogFeedTitle">BLOGS</h3>
       </div>
-      <div>
+      <div class="card-body">
         <%= render 'static_pages/front_page'%>
       </div>
     </div>
@@ -15,6 +15,7 @@
 <div class="col-md-3">
 
   <%= render 'shared/new_exercise'%>
+</div>
 </div>
 <% else %>
 <div class="jumbotron">
