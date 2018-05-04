@@ -31,7 +31,7 @@
 
 
       <% if logged_in? && current_user.admin? %> 
-        <td><%= cons.start_time%>
+        <td>
             <%= link_to "Delete contest","#", data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm float-right" %>
             </td>
         </tr>
