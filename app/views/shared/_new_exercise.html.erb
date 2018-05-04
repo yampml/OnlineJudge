@@ -1,18 +1,18 @@
 <%@problems = Problem.order("created_at desc").all%>
 
 </ul> 
-<div class="card">
-  <div class="card-header text-center">
+<div class="card border-success">
+  <div class="card-header text-center border-success" id="headerNewExerices">
     New exercise
   </div>
 
-    <table class="table table-striped">
+    <table class="table table-striped ">
 	  
 	<tbody>
           <% @problems.each do |probs| %>
           <tr>
-            <td scope ="row"><%= link_to probs.name.titleize, probs %></td>
-            <td>Posted <%= time_ago_in_words(probs.created_at)%> ago</td>
+            <th scope ="row" class="fixedSize"><%= link_to probs.name.titleize, probs ,class:"fixedLink"%></th>
+            <td class="fixedSize">Posted <%= time_ago_in_words(probs.created_at)%> ago</td>
           </tr>
           <% end %>
         </tbody>  

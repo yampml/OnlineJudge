@@ -1,19 +1,26 @@
 <%= form_for @blog do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="card text-center bg-light mb-3">
+  
 
-  	<div class="card-header">
-  		<h6>NEW POST</h6>
-  	</div>
+  	<div class="modal-header">
+      <h5 class="modal-title">NEW POST</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
-	<div class="card-body">
+	<div class="modal-body">
 	  <div class="form-group">
 	  	<%= f.text_field :title, placeholder: "Your new title...", class:"form-control "%>
 	  </div>
 	  <div class="form-group">
 	    <%= f.text_area :content, placeholder: "Compose new blog...", rows: "5", class:"form-control " %>
 	  </div>
-		<%= f.submit "Post",class:"btn btn-success"%>
 	</div>
-  </div>
+    <div class="modal-footer">
+  		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		<%= f.submit "Post",class:"btn btn-success"%>
+  	</div>
+	
+
 <% end %>
