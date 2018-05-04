@@ -18,13 +18,17 @@
             <td><%= probs.timelimit%> ms</td>
             <td>
               <%= probs.memlimit%> KB
+
               <% if logged_in? %>
                 <% if !current_user.nil? && current_user.admin?%>
-                  <td><%= link_to "Delete problem", probs,  method: :delete, 
-                                        data: { confirm: "Your deletion can't be restored" } %></td>
-                  <%end%> 
+                <%= link_to "Delete problem", probs,  method: :delete, 
+                                  data: { confirm: "Your deletion can't be restored" },
+                                  class:"btn btn-danger btn-sm float-right" %>
+                <%end%> 
               <%end%> 
+
             </td>
+
           </tr>
           <% end %>
         </tbody>  
