@@ -20,6 +20,17 @@ class BlogsController < ApplicationController
 		redirect_to request.referrer || root_url
 	end
 
+	def upvote 
+		@blog = Blog.find(params[:id])
+		@blog.liked_by current_user
+		redirect_to request.referrer
+	end
+	def downvote
+		@blog = Blog.find(params[:id])
+		@blog.unliked_by current_user
+		redirect_to request.referrer
+	end  
+
 	private
 
 		def blog_params
