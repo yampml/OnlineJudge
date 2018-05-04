@@ -4,7 +4,7 @@
     <div class="row">
     	<div class="col-md-9 ">
 
-		    <div class="card bg-light">
+		    <div class="card bg-light card-form">
 		    	<h5 class="card-title text-center veryfirstLabel" >Summit solution</h5>
 				  <%= select(:lang, :value, { "Java 8" => 1, "GNU C++" => 2, "Python" => 3 }) %>
 
@@ -17,7 +17,6 @@
 
 	}
 </textarea>
-
 				<script>
 				$('#editor').ace({ theme: 'twilight', lang: 'java' })
 				</script>
@@ -29,6 +28,7 @@
 						<%= render 'shared/error_messages', object: f.object %>						
 						
 						<%= hidden_field_tag :problem_id, @problem.id %>
+						<%= hidden_field_tag :contest_id, @contest.id %>
 
 						<%= f.label :solution_name, "Choose file or source code" ,class:"submitBasicLabel"%>
 						<%= f.file_field :solution_name ,class:"form-control-file"%>

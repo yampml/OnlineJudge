@@ -10,17 +10,17 @@
 
 		<div class="form-group">
 			<%= f.label :name %>
-			<%= f.text_field :name %>
+			<%= f.text_field :name ,class:"form-control"%>
 		</div>
 
 		<div class="form-group">
 			<%= f.label :start_time, "Start time" %>
-			<%= f.datetime_field :start_time %>
+			<%= f.datetime_field :start_time ,class:"form-control"%>
 		</div>
 
 		<div class="form-group">
 			<%= f.label :duration, "Duration (in minutes)" %>
-			<%= f.number_field :duration %>
+			<%= f.number_field :duration ,class:"form-control"%>
 		</div>
 
 			<%= f.submit "Upload", class:"btn btn-success"%>

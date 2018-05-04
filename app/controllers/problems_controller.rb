@@ -8,6 +8,9 @@ class ProblemsController < ApplicationController
 
   def show
     #@problem = Problem.find(params[:id])
+    @contest = params[:contest_id]
+
+
     @problem = Problem.find_by(id: params[:id])
     if params[:contest_id] != nil 
       @contest = @problem.contest

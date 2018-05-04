@@ -20,7 +20,14 @@
           <% else %>
             <%= link_to "Login to submit", login_path, class:"btn btn-info" %>
           <% end  %>
-            <%= link_to "Submission table", submissions_path, class: "btn btn-info"%>
+
+          <% if !@contest.nil? %>
+          	<%= link_to "Contest submission table", contest_submissions_path(@contest), class: "btn btn-info"%>
+          <% else %>
+           	<%= link_to "Submission table", submissions_path, class: "btn btn-info"%>
+          <% end %>
+
+            
         </div>
 
         <div class="table-responsive">
