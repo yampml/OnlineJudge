@@ -1,4 +1,4 @@
-<li class="list-group-item list-group-item-action">
+<li class="list-group-item list-group-item-action ">
 	<%= link_to gravatar_for(user),user, size: 50 %>
 	<%= link_to user.name, user,class: "UserInfoLink"%>
 	<% if current_user.admin? && !current_user?(user) %>
