@@ -19,6 +19,7 @@
       <td class="row">
         <div class="col-md-8"><%= cons.start_time %></div>
         <div class="row col-md-4">  
+
         <% if logged_in? %> 
           <% if cons.start_time > Time.now %>
             <%= form_for cons, :html => {:class => 'contest_form'} do |f| %>
@@ -30,9 +31,12 @@
           <%= " || Must login to register to contest" %>
         <% end %>
         <% if logged_in? && current_user.admin? %> 
-            <%= link_to "Delete contest","#", data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm" %>
+
+            <%= link_to "Delete contest", cons, method: :delete, data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm" %>
+
         </div>
       </td>
+
         </tr>
       <% end %>
 

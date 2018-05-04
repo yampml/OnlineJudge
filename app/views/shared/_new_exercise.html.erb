@@ -1,22 +1,24 @@
 <%@problems = Problem.order("created_at desc").all%>
 
-</ul> 
+
 <div class="card border-success">
   <div class="card-header text-center border-success" id="headerNewExerices">
     New exercise
   </div>
-
-    <table class="table table-striped ">
+  
+<div class="table-responsive">
+  <table class="table table-hover table-striped" id="tableFix">
 	  
-	<tbody>
-          <% @problems.each do |probs| %>
-          <tr>
-            <th scope ="row" class="fixedSize"><%= link_to probs.name.titleize, probs ,class:"fixedLink"%></th>
-            <td class="fixedSize">Posted <%= time_ago_in_words(probs.created_at)%> ago</td>
-          </tr>
-          <% end %>
-        </tbody>  
+	  <tbody>
+      <% @problems.each do |probs| %>
+      <tr>
+        <th scope ="row" class="fixedSize"><%= link_to probs.name.titleize, probs ,class:"fixedLink"%></th>
+        <td class="fixedSize">Posted <%= time_ago_in_words(probs.created_at)%> ago</td>
+      </tr>
+      <% end %>
+    </tbody>  
 	</table>
+</div>
  
 </div>
 

@@ -1,4 +1,3 @@
-
 <div class= "row">
   <% if !@contest.nil? && @contest.is_running == 2 %>
 	  Contest ended, please view the problem in Problemset
@@ -12,11 +11,23 @@
         <div class="mb-3 text-center">
           <%= link_to "Problems set", problemset_path, class: "btn btn-info"%>
           <% if !current_user.nil? %>
-            <%= link_to "Submit solution", new_problem_submission_path(@problem), class:"btn btn-info" %>
+          	<% if !@contest.nil? %>
+          		<%= link_to "Submit solution", new_contest_problem_submission_path(@contest, @problem), class:"btn btn-info" %>
+          	<% else %>
+          		<%= link_to "Submit solution", new_problem_submission_path(@problem), class:"btn btn-info" %>
+          	<% end %>
+            
           <% else %>
             <%= link_to "Login to submit", login_path, class:"btn btn-info" %>
           <% end  %>
-            <%= link_to "Submission table", submissions_path, class: "btn btn-info"%>
+
+          <% if !@contest.nil? %>
+          	<%= link_to "Contest submission table", contest_submissions_path(@contest), class: "btn btn-info"%>
+          <% else %>
+           	<%= link_to "Submission table", submissions_path, class: "btn btn-info"%>
+          <% end %>
+
+            
         </div>
 
         <div class="table-responsive">

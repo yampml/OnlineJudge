@@ -70,6 +70,12 @@ Rails.application.routes.draw do
   resources :users
 
   resources :blogs, only: [:create, :destroy]
+  resources :blogs do 
+    member do
+      put "like", to: "blogs#upvote"
+      put "dislike", to: "blogs#downvote"
+    end
+  end
 
   resources :contests, only: [:index, :show]
 
@@ -93,10 +99,12 @@ Rails.application.routes.draw do
   resources :submissions, only: [:new, :create, :index]
 
   resources :contests do
-      resources :problems, only: [:show]
+    resources :problems, only: [:show] do
       resources :submissions, only: [:new, :create]
+    end
+    resources :submissions, only: [:index]
   end
 
-
+  get '/contests/:id/scoreboard', to: 'contests#scoreboard', as: 'contest_scoreboard'
 
 end

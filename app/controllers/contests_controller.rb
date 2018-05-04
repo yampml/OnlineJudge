@@ -39,12 +39,43 @@ class ContestsController < ApplicationController
 		redirect_to contests_path
 	end
 
-	def register
+	def scoreboard
+		@contest = Contest.find_by(id: params[:id])
+		@participant = @contest.users
+		@problem = @contest.problems
+		@submissions = @contest.submissions
 
+		@boardAC = Array.new(@participant.count) {Array.new(@problem.count)}
+		@boardCount = Array.new(@participant.count) {Array.new(@problem.count)}
+		
+		i = 0
+		j = 0
+		
+		for par in @participant
+			for prob in @problem
+				k1 = prob.submissions.where(user_id: par.id, contest_id: @contest.id).count 
+				@boardCount[i][j] = k1
+				k2 = prob.submissions.where(result: "Accepted", user_id: par.id).count
+				if k2 > 0
+					@boardAC[i][j] = 1
+				else 
+					@boardAC[i][j] = 0
+				end
+				j+=1
+			end
+			i+=1
+			j=0
+		end
+		
 	end
 
-	def scoreboard
-
+	def destroy
+		Contest.find(params[:id]).problems.each do |prob|
+			prob.update_attribute(:contest_id, nil)
+		end
+		Contest.find(params[:id]).destroy
+		flash[:success] = "Contest deleted"
+		redirect_to contests_path
 	end
 
 	private
