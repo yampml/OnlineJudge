@@ -7,16 +7,36 @@
     <th>ID</th>
     <th>Contest</th>
     <th>Time</th>
+
     </tr>
     </thead>
     <% @contests.each do |cons| %>
     <tr>
       <td><%= link_to cons.id, cons %></td>
       <td><%= link_to cons.name.titleize, cons%></td>
-      <td><%= cons.start_time%>
-          <%= link_to "Delete contest","#", data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm float-right" %>
-          </td>
-      </tr>
+
+      <td>
+        <%= cons.start_time %>  
+        <% if logged_in? %> 
+          <% if cons.start_time > Time.now %>
+            <%= form_for(cons) do |f| %>
+              <%= hidden_field_tag :user_id, current_user.id %>
+              <%= f.submit "Register"%>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= " || Must login to register to contest" %>
+        <% end %>
+      </td>
+
+
+      <% if logged_in? && current_user.admin? %> 
+        <td><%= cons.start_time%>
+            <%= link_to "Delete contest","#", data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm float-right" %>
+            </td>
+        </tr>
+      <% end %>
+
     <% end %>
     </table>
     </div>
