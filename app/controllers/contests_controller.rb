@@ -39,12 +39,8 @@ class ContestsController < ApplicationController
 		redirect_to contests_path
 	end
 
-	def register
-
-	end
-
 	def scoreboard
-
+		
 	end
 
 	private
