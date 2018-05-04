@@ -1,25 +1,33 @@
+
 <div class= "row">
-  <div class="card col-md-9">
-  		<h2 class="text-center text-success"> <%= @problem.name %> </h2>
-  		<p class="text-center prob-param"> Problem ID: <%= @problem.id %> </p>
-  		<p class="text-center prob-param"> Timelimit: <%= @problem.timelimit %> </p>
-  		<p class="text-center prob-params"> Memlimit: <%= @problem.memlimit %> </p>
-  		<div class="mb-3 text-center">
-		<%= link_to "Problems set", problemset_path, class: "btn btn-info"%>
-		<%= link_to "Submit solution", new_problem_submission_path(@problem), class:"btn btn-info" %>
-		<%= link_to "Submission table", submissions_path, class: "btn btn-info"%>
-		</div>
+  <% if !@contest.nil? && @contest.is_running == 2 %>
+	  Contest ended, please view the problem in Problemset
+  <% else %>
 
-    <div class="table-responsive">
-    
-		<div class="embed-responsive embed-responsive-16by9 iframe">
-		<iframe class="embed-responsive-item" src = "<%= path = @pdffile %>"></iframe> %>
-		</div>
-		</div>
-		</div>
-    
-  <div class="col-md-3">
-         <%= render 'shared/new_exercise'%>
+    <div class="card col-md-9">
+        <h2 class="text-center text-success"> <%= @problem.name %> </h2>
+        <p class="text-center prob-param"> Problem ID: <%= @problem.id %> </p>
+        <p class="text-center prob-param"> Timelimit: <%= @problem.timelimit %> </p>
+        <p class="text-center prob-params"> Memlimit: <%= @problem.memlimit %> </p>
+        <div class="mb-3 text-center">
+          <%= link_to "Problems set", problemset_path, class: "btn btn-info"%>
+          <% if !current_user.nil? %>
+            <%= link_to "Submit solution", new_problem_submission_path(@problem), class:"btn btn-info" %>
+          <% else %>
+            <%= link_to "Login to submit", login_path, class:"btn btn-info" %>
+          <% end  %>
+            <%= link_to "Submission table", submissions_path, class: "btn btn-info"%>
         </div>
- </div>
 
+        <div class="table-responsive">
+
+        <div class="embed-responsive embed-responsive-16by9 iframe">
+          <iframe class="embed-responsive-item" src = "<%= path = @pdffile %>"></iframe> %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="col-md-3">
+    <%= render 'shared/new_exercise'%>
+  </div>
+ </div>

@@ -25,7 +25,12 @@
                 <%end%>
               <%end%> 
             </td>
-            
+
+            <% if !current_user.nil? && current_user.admin?%>
+            <td><%= link_to "Delete problem", probs,  method: :delete, 
+                                  data: { confirm: "Your deletion can't be restored" } %></td>
+            <%end%> 
+
           </tr>
           <% end %>
         </tbody>  
