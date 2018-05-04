@@ -10,7 +10,16 @@
     <tr>
       <td><%= link_to cons.id, cons %></td>
       <td><%= link_to cons.name.titleize, cons%></td>
-      <td><%= cons.start_time%></td>
+      <td>
+        <%= cons.start_time %>  
+
+        <% if cons.start_time > Time.now %>
+          <%= form_for(cons) do |f| %>
+            <%= hidden_field_tag :user_id, current_user.id %>
+            <%= f.submit "Register"%>
+          <% end %>
+        <% end %>
+      </td>
       <td><%= link_to "Delete contest",
                                   data: { confirm: "Your deletion can't be restored" } %></td>
       </tr>

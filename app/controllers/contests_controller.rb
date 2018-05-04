@@ -13,12 +13,13 @@ class ContestsController < ApplicationController
 
 	def create
 		@contest = Contest.new(contest_params)
-		@contest.is_running = 1
+		@contest.is_running = 0
 			if @contest.save
-			new_problem = Problem.where(contest_id: nil)
-			new_problem.each do |prob|
+				new_problem = Problem.where(contest_id: nil)
+				new_problem.each do |prob|
 				prob.contest_id = @contest.id
 				prob.save
+				ActiveJob::ActivateContestJob.set(wait_until: @contest.start_time).perform_later(@contest.id)
 			end
 
 			flash[:success] = "Okay, saved!"
@@ -33,10 +34,14 @@ class ContestsController < ApplicationController
 	end
 
 	def update
-
+		@contest = Contest.find_by(id: params[:id])
+		@contest.users << User.find_by(id: params[:user_id])
+		redirect_to contests_path
 	end
 
+	def register
 
+	end
 
 	def scoreboard
 
