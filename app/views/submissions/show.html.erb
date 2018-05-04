@@ -1,12 +1,29 @@
 <% provide(:title, 'Solution status') %>
 
-<div>
-	<p>Source code: </p>
-	<div class="embed-responsive embed-responsive-16by9 iframe">
-		<iframe class="embed-responsive-item" src = "<%= @submission.solution_name.to_s %>"></iframe> %>
+<div class="row">
+	<div class="col-md-9">
+		<p>Source code: </p>
+		<div class="embed-responsive embed-responsive-16by9 iframe">
+			<iframe class="embed-responsive-item" src = "<%= @submission.solution_name.to_s %>"></iframe>
+		</div>
 	</div>
 
-	<p>Result: "<%= @submission.result %>"</p>
-	<p>Compile_log: "<%= @submission.compile_log %>"</p>
-
+	<div class="col-md-3">
+		
+		<div class="card">
+			<% if accepted(@submission.result) %>
+			<div class="card-header text-white bg-success">
+				<p>Result: "<%= @submission.result %>"</p>
+			</div>
+			<% else %>
+			<div class="card-header text-white bg-danger">
+				<p>Result: "<%= @submission.result %>"</p>
+			</div>
+			<%end%>
+			<div class="card-body">
+				<p>Compile_log: "<%= @submission.compile_log %>"</p>\
+			</div>
+		</div>
+		</div>
+	</div>
 </div>
