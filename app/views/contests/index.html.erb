@@ -31,7 +31,7 @@
           <%= " || Must login to register to contest" %>
         <% end %>
         <% if logged_in? && current_user.admin? %> 
-            <%= link_to "Delete contest",method: :delete, data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm" %>
+            <%= link_to "Delete contest", cons, method: :delete, data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm" %>
         </div>
       </td>
 
