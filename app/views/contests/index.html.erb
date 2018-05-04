@@ -7,16 +7,15 @@
     <th>ID</th>
     <th>Contest</th>
     <th>Time</th>
-    <th></th>
     </tr>
     </thead>
     <% @contests.each do |cons| %>
     <tr>
       <td><%= link_to cons.id, cons %></td>
       <td><%= link_to cons.name.titleize, cons%></td>
-      <td><%= cons.start_time%></td>
-      <td><%= link_to "Delete contest",
-                                  data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm" %></td>
+      <td><%= cons.start_time%>
+          <%= link_to "Delete contest","#", data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm float-right" %>
+          </td>
       </tr>
     <% end %>
     </table>

@@ -8,7 +8,6 @@
             <th>Problem name</th>
             <th>Time Limit</th>
             <th>Memory Limit</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -19,11 +18,14 @@
             <td><%= probs.timelimit%> ms</td>
             <td>
               <%= probs.memlimit%> KB
+              <% if logged_in? %>
+                <% if current_user.admin?%>
+                <%= link_to "Delete problem", probs,  method: :delete, 
+                                  data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm float-right" %>
+                <%end%>
+              <%end%> 
             </td>
-            <% if current_user.admin?%>
-            <td><%= link_to "Delete problem", probs,  method: :delete, 
-                                  data: { confirm: "Your deletion can't be restored" }, class:"btn btn-danger btn-sm" %></td>
-            <%end%> 
+            
           </tr>
           <% end %>
         </tbody>  
