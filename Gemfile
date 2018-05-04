@@ -41,7 +41,7 @@ gem 'carrierwave'
 gem 'jquery-ace-rails'
 gem "font-awesome-rails"
 gem 'acts_as_votable', '~> 0.10.0'
-
+gem 'commontator', '~> 5.1.0'
 
 
 group :development, :test do
