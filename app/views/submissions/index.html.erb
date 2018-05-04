@@ -1,0 +1,19 @@
+
+<table class="table table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Submission Time</th>
+    <th>User</th>
+    <th>Problem</th>
+    <th>Result</th>
+    </tr>
+    <% @submissions.each do |sub| %>
+    <tr>
+      <td><%= link_to sub.id, sub %></td>
+      <td><%= sub.time_at_submit %></td>
+      <td><%= link_to sub.user.name, sub.user %></td> 
+      <td><%= link_to sub.problem.name.titleize, sub.problem%></td>
+      <td><%= sub.result%></td>
+      </tr>
+    <% end %>
+</table>
