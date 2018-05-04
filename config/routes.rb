@@ -107,4 +107,5 @@ Rails.application.routes.draw do
 
   get '/contests/:id/scoreboard', to: 'contests#scoreboard', as: 'contest_scoreboard'
 
+  mount Commontator::Engine => '/commontator'
 end

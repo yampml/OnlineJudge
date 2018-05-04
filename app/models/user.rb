@@ -17,7 +17,7 @@ class User < ApplicationRecord
 	has_and_belongs_to_many :contests
 	has_many :blogs, dependent: :destroy
 	attr_accessor :remember_token
-
+	acts_as_commontator
 
 	before_save {self.email = email.downcase }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
