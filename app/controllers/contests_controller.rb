@@ -4,7 +4,7 @@ class ContestsController < ApplicationController
 	end
 
 	def index
-		@contests = Contest.paginate(page: params[:page])
+		@contests = Contest.order(:id).paginate(page: params[:page])
 	end
 
 	def new
@@ -13,15 +13,14 @@ class ContestsController < ApplicationController
 
 	def create
 		@contest = Contest.new(contest_params)
-		@contest.is_running = 0
-			if @contest.save
-				new_problem = Problem.where(contest_id: nil)
-				new_problem.each do |prob|
+		@contest.is_running = 1
+		if @contest.save
+			new_problem = Problem.where(contest_id: nil)
+			new_problem.each do |prob|
 				prob.contest_id = @contest.id
 				prob.save
-				ActiveJob::ActivateContestJob.set(wait_until: @contest.start_time).perform_later(@contest.id)
 			end
-
+			ActiveJob::ActivateContestJob.set(wait_until: @contest.start_time).perform_later(@contest.id)
 			flash[:success] = "Okay, saved!"
 			redirect_to @contest
 		else
